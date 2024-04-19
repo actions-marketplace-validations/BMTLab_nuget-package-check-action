@@ -16,7 +16,7 @@
  * @license MIT
  */
 
-// Importing the core library from GitHub Actions toolkit for interaction with GitHub Actions.
+// GitHub Actions toolkit for interaction with GitHub Actions.
 import core from '@actions/core'
 import axios from 'axios'
 import { fileURLToPath } from 'url'
@@ -41,7 +41,7 @@ async function isPackageIndexed (url) {
     const response = await axios.get(url)
     return response.status === 200
   } catch (error) {
-    if (error.response && error.response.status === 404) {
+    if (error.response?.status === 404) {
       return false
     } else if (!error.response) {
       throw new Error('Network error or no response received')
@@ -68,18 +68,16 @@ export async function checkNugetPackageIndexed (
   const url = `https://www.nuget.org/api/v2/package/${packageName}/${packageVersion}`
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    // Check if the package is available & indexed.
     const isIndexed = await isPackageIndexed(url)
 
     if (isIndexed) {
       console.log(`Package ${packageName} version ${packageVersion} is indexed on nuget.org.`)
-      return true // If indexed, log success and return.
+      return true
     }
 
-    // If the current attempt is not the last one, prepare for the next attempt.
     if (attempt < maxAttempts) {
       console.log(`Attempt ${attempt} of ${maxAttempts}: Package not indexed yet. Retrying in ${timeout / 1000} seconds...`)
-      await sleep(timeout) // Wait for the specified timeout before the next attempt.
+      await sleep(timeout)
     }
   }
 
@@ -101,7 +99,6 @@ function run () {
     .catch(error => core.setFailed(error.message))
 }
 
-// Retrieve the current file and directory from the URL of the import.meta.
 const currentFile = fileURLToPath(import.meta.url)
 const currentDir = path.dirname(currentFile)
 

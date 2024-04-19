@@ -2,8 +2,7 @@
 
 name: 'NuGet Package Availability Checker'
 description: >-
-  GitHub Action automates NuGet package availability checks, ensuring packages exist and are indexed on nuget.org. 
-  It supports multiple verification attempts and suspends CI/CD workflows until the package is published
+  GitHub Action automates NuGet package availability checks, ensuring packages exist and are indexed on nuget.org.
 author: 'BMTLab'
 branding:
   icon: activity
@@ -18,7 +17,7 @@ inputs:
   attempts:
     description: 'Maximum number of attempts to check the package availability'
     required: false
-    default: '10'
+    default: '1'
 runs:
   using: 'node20'
   main: 'src/index.js'

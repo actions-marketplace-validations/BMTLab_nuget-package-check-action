@@ -28,7 +28,7 @@ import path from 'path'
  * @returns {Promise<void>} A promise that resolves after the specified duration.
  */
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-const defaultAttemptsCount = 10
+const defaultAttemptsCount = 1
 const defaultSleepBetweenAttempts = 30_000
 
 /**
@@ -76,7 +76,7 @@ export async function checkNugetPackageIndexed (
     }
 
     if (attempt < maxAttempts) {
-      console.log(`Attempt ${attempt} of ${maxAttempts}: Package not indexed yet. Retrying in ${timeout / 1000} seconds...`)
+      console.log(`Attempt ${attempt} of ${maxAttempts}: Package not indexed yet. Retrying in ${timeout / 1_000} seconds...`)
       await sleep(timeout)
     }
   }

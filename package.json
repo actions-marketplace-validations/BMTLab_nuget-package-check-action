@@ -1,0 +1,53 @@
+{
+  "name": "nuget-package-check-action",
+  "version": "1.0.0",
+  "description": "GitHub Action automates NuGet package availability checks, ensuring packages exist and are indexed on nuget.org.",
+  "author": "neverovnikita.bmt@gmail.com",
+  "license": "MIT",
+  "keywords": [
+    "github-action",
+    "nuget",
+    "package-index",
+    "package-check",
+    "ci-cd",
+    "automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BMTLab/nuget-package-check-action"
+  },
+  "bugs": {
+    "url": "https://github.com/cypress-io/github-action/issues"
+  },
+  "homepage": "https://github.com/BMTLab/nuget-package-check-action#readme",
+  "private": false,
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "eslint .",
+    "lint-fix": "npm run lint -- --fix",
+    "ci": "npm run lint && npm test"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.0.2",
+    "@eslint/js": "^9.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "globals": "^15.0.0",
+    "lint-staged": "^15.2.2",
+    "msw": "^2.2.14",
+    "vitest": "^1.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

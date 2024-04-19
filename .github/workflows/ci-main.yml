@@ -1,0 +1,11 @@
+name: CI-Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/ci-base-build.yml
+    secrets: inherit

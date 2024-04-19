@@ -1,4 +1,5 @@
 # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
+
 name: 'NuGet Package Availability Checker'
 description: >-
   GitHub Action automates NuGet package availability checks, ensuring packages exist and are indexed on nuget.org. 

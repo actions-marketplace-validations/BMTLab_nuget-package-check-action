@@ -1,3 +1,4 @@
+// eslint.config.js
 import globals from 'globals'
 
 import path from 'path'
